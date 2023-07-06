@@ -1,37 +1,37 @@
 
     
     <!-- js -->
-	<script src="<?=base_url('assets/')?>vendors/scripts/core.js"></script>
-	<script src="<?=base_url('assets/')?>vendors/scripts/script.min.js"></script>
-	<script src="<?=base_url('assets/')?>vendors/scripts/process.js"></script>
-	<script src="<?=base_url('assets/')?>vendors/scripts/layout-settings.js"></script>
+	<script src="<?=base_url('assets2/')?>vendors/scripts/core.js"></script>
+	<script src="<?=base_url('assets2/')?>vendors/scripts/script.min.js"></script>
+	<script src="<?=base_url('assets2/')?>vendors/scripts/process.js"></script>
+	<script src="<?=base_url('assets2/')?>vendors/scripts/layout-settings.js"></script>
 
-	<script src="<?=base_url('assets/')?>src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="<?=base_url('assets/')?>src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-	<script src="<?=base_url('assets/')?>src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-	<script src="<?=base_url('assets/')?>src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<script src="<?=base_url('assets2/')?>src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="<?=base_url('assets2/')?>src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="<?=base_url('assets2/')?>src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="<?=base_url('assets2/')?>src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
 
 
     <!-- add sweet alert js & css in footer -->
-	<script src="<?=base_url('assets/')?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
-	<script src="<?=base_url('assets/')?>src/plugins/sweetalert2/sweet-alert.init.js"></script>
+	<script src="<?=base_url('assets2/')?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
+	<script src="<?=base_url('assets2/')?>src/plugins/sweetalert2/sweet-alert.init.js"></script>
 
 	<!-- Bootstrap File Upload Plugin -->
-	<script src="<?=base_url('assets/')?>fileupload/bs-filestyle.js"></script>
+	<script src="<?=base_url('assets2/')?>fileupload/bs-filestyle.js"></script>
 
 
 	<!-- Date & Time Picker JS -->
-	<script src="<?=base_url('assets/')?>timepicker/js/components/moment.js"></script>
-	<script src="<?=base_url('assets/')?>timepicker/js/components/timepicker.js"></script>
-	<script src="<?=base_url('assets/')?>timepicker/js/components/datepicker.js"></script>
+	<script src="<?=base_url('assets2/')?>timepicker/js/components/moment.js"></script>
+	<script src="<?=base_url('assets2/')?>timepicker/js/components/timepicker.js"></script>
+	<script src="<?=base_url('assets2/')?>timepicker/js/components/datepicker.js"></script>
 	<!-- Include Date Range Picker -->
-	<script src="<?=base_url('assets/')?>timepicker/js/components/daterangepicker.js"></script>
+	<script src="<?=base_url('assets2/')?>timepicker/js/components/daterangepicker.js"></script>
 	<!-- Date & Time Picker JS -->
-	<script src="<?=base_url()?>assets/dist/zebra_datepicker.min.js"></script>
-	<script src="<?=base_url()?>assets/ekko_lightbox/ekko-lightbox.min.js"></script>
+	<script src="<?=base_url()?>assets2/dist/zebra_datepicker.min.js"></script>
+	<script src="<?=base_url()?>assets2/ekko_lightbox/ekko-lightbox.min.js"></script>
 
 	<!-- Moment -->
-	<script src="<?=base_url('assets/moment/moment.min.js')?>"></script>
+	<script src="<?=base_url('assets2/moment/moment.min.js')?>"></script>
 
 </body>
 

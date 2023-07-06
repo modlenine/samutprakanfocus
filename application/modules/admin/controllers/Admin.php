@@ -14,7 +14,9 @@ class Admin extends MX_Controller {
 
     public function index()
     {
-        echo "test";
+        $this->load->view("header");
+        $this->load->view("index");
+        $this->load->view("footer");
     }
 
 }

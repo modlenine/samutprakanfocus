@@ -12,7 +12,11 @@ class Login_model extends CI_Model {
 
     public function checklogin()
     {
-        
+        $output = array(
+            "msg" => "test"
+        );
+
+        echo json_encode($output);
     }
     
     

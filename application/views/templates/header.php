@@ -4,10 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./assets/img/favicon.png">
-  <link rel="stylesheet" href="./assets/css/plugins.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="<?=base_url()?>/assets/img/favicon.png">
+  <link rel="stylesheet" href="<?=base_url()?>/assets/css/plugins.css">
+  <link rel="stylesheet" href="<?=base_url()?>/assets/css/style.css">
 
+  <script src="<?=base_url('assets2/js/jquery.min.js?v='.filemtime('./assets2/js/jquery.min.js'))?>"></script>
   <script src="<?=base_url('assets/js/axios.min.js')?>"></script>
 
   <style>
@@ -126,7 +127,7 @@
                 <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#modal-signin">เข้าสู่ระบบ</a>
               </li>
               <li class="nav-item d-none d-md-block">
-                <a href="#" class="btn btn-sm btn-primary rounded" data-bs-toggle="modal" data-bs-target="#modal-signup">ลงทะเบียน</a>
+                <a href="#" class="btn btn-sm btn-primary rounded" id="btn-openmodal-register" data-bs-toggle="modal" data-bs-target="#modal-signup">ลงทะเบียน</a>
               </li>
               <li class="nav-item d-lg-none">
                 <button class="hamburger offcanvas-nav-btn"><span></span></button>
@@ -180,37 +181,41 @@
           <div class="modal-content text-center">
             <div class="modal-body">
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              <h2 class="mb-3 text-start">Sign up to Sandbox</h2>
-              <p class="lead mb-6 text-start">Registration takes less than a minute.</p>
-              <form class="text-start mb-3">
+              <h2 class="mb-3 text-start">ลงทะเบียน</h2>
+              <p class="lead mb-6 text-start">กรุณากรอกข้อมูลด้านล่างเพื่อสมัครสมาชิก</p>
+              <form class="text-start mb-3 needs-validation" id="frm-register" autocomplete="off" novalidate>
                 <div class="form-floating mb-4">
-                  <input type="text" class="form-control" placeholder="Name" id="loginName">
-                  <label for="loginName">Name</label>
+                  <input type="text" class="form-control" placeholder="ชื่อ" id="regisName" required>
+                  <label for="regisName">ชื่อ</label>
                 </div>
                 <div class="form-floating mb-4">
-                  <input type="email" class="form-control" placeholder="Email" id="loginEmail">
-                  <label for="loginEmail">Email</label>
+                  <input type="email" class="form-control" placeholder="อีเมล" id="regisEmail" required>
+                  <label for="regisEmail">อีเมล</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input type="tel" class="form-control" placeholder="เบอร์โทร" id="regisTel" required>
+                  <label for="regisTel">เบอร์โทร</label>
                 </div>
                 <div class="form-floating password-field mb-4">
-                  <input type="password" class="form-control" placeholder="Password" id="loginPassword">
+                  <input type="password" class="form-control" placeholder="รหัสผ่าน" id="regisPassword" required>
                   <span class="password-toggle"><i class="uil uil-eye"></i></span>
-                  <label for="loginPassword">Password</label>
+                  <label for="regisPassword">รหัสผ่าน</label>
                 </div>
                 <div class="form-floating password-field mb-4">
-                  <input type="password" class="form-control" placeholder="Confirm Password" id="loginPasswordConfirm">
+                  <input type="password" class="form-control" placeholder="ยืนยันรหัสผ่าน" id="regisPasswordConfirm" required>
                   <span class="password-toggle"><i class="uil uil-eye"></i></span>
-                  <label for="loginPasswordConfirm">Confirm Password</label>
+                  <label for="regisPasswordConfirm">ยืนยันรหัสผ่าน</label>
                 </div>
-                <a class="btn btn-primary rounded-pill btn-login w-100 mb-2">Sign Up</a>
+                <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2" id="btn-register">ลงทะเบียน</button>
               </form>
               <!-- /form -->
-              <p class="mb-0">Already have an account? <a href="#" data-bs-target="#modal-signin" data-bs-toggle="modal" data-bs-dismiss="modal" class="hover">Sign in</a></p>
-              <div class="divider-icon my-4">or</div>
+              <p class="mb-0">ถ้าคุณมีบัญชีแล้วกรัณาเข้าสู่ระบบ <a href="#" data-bs-target="#modal-signin" data-bs-toggle="modal" data-bs-dismiss="modal" class="hover">เข้าสู่ระบบ</a></p>
+              <!-- <div class="divider-icon my-4">หรือ</div>
               <nav class="nav social justify-content-center text-center">
                 <a href="#" class="btn btn-circle btn-sm btn-google"><i class="uil uil-google"></i></a>
                 <a href="#" class="btn btn-circle btn-sm btn-facebook-f"><i class="uil uil-facebook-f"></i></a>
                 <a href="#" class="btn btn-circle btn-sm btn-twitter"><i class="uil uil-twitter"></i></a>
-              </nav>
+              </nav> -->
               <!--/.social -->
             </div>
             <!--/.modal-content -->
@@ -224,12 +229,71 @@
 </body>
 
 <script>
-    const loginbtn = document.getElementById("btn-login");
-    loginbtn.addEventListener("click" , checklogin('test'));
-    function checklogin(input)
-    {
-      console.log(input);
-    }
+  const url = "<?php echo base_url() ?>";
+    $(document).ready(function(){
+      $('#frm-register').on('submit' , function(e){
+        //check data register
+        e.preventDefault();
+        if($('#regisName').val() == ""){
+          swal({
+            title: 'กรุณากรอกชื่อของท่าน',
+            type: 'error',
+            showConfirmButton: false,
+            timer:1500
+          });
+        }else if($('#regisEmail').val() == ""){
+          swal({
+            title: 'กรุณากรอกอีเมลของท่าน',
+            type: 'error',
+            showConfirmButton: false,
+            timer:1500
+          });
+        }else if($('#regisTel').val() == ""){
+          swal({
+            title: 'กรุณากรอกเบอร์โทรศัพท์ที่สามารถิตดต่อได้',
+            type: 'error',
+            showConfirmButton: false,
+            timer:1500
+          });
+        }else if($('#regisPassword').val() == ""){
+          swal({
+            title: 'กรุณากรอกรหัสผ่าน',
+            type: 'error',
+            showConfirmButton: false,
+            timer:1500
+          });
+        }else if($('#regisPasswordConfirm').val() == ""){
+          swal({
+            title: 'กรุณากรอกรหัสผ่านอีกครั้ง',
+            type: 'error',
+            showConfirmButton: false,
+            timer:1500
+          });
+        }else{
+          //check password and confirm password ว่าตรงกันหรือไม่
+          if($('#regisPassword').val() != $('#regisPasswordConfirm').val()){
+            swal({
+              title: 'กรุณากรอกข้อมูลให้ตรงกัน',
+              type: 'error',
+              showConfirmButton: false,
+              timer:1500
+            });
+          }else{
+            const form = $('#frm-register')[0];
+            const data = new FormData(form);
+
+            axios.post(url+'login/login/checklogin',data).then(res=>{
+              console.log(res.data);
+            });
+          }
+        }
+      });
+
+      $(document).on('click' , '#btn-openmodal-register', function(){
+        $('#frm-register input').val('');
+        $('#frm-register').removeClass('was-validated');
+      });
+    });
 </script>
 
 </html>

@@ -13,29 +13,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>src/plugins/datatables/css/responsive.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>vendors/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets2/')?>vendors/styles/core.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets2/')?>vendors/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets2/')?>src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets2/')?>src/plugins/datatables/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets2/')?>vendors/styles/style.css">
 	
 
-    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>src/plugins/sweetalert2/sweetalert2.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/')?>css/custom.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets2/')?>src/plugins/sweetalert2/sweetalert2.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url('assets2/')?>css/custom.css">
 
 	<!-- Bootstrap File Upload CSS -->
-	<link rel="stylesheet" href="<?=base_url('assets/')?>fileupload/bs-filestyle.css" type="text/css" />
-	<link rel="stylesheet" href="<?=base_url('assets/')?>fileupload/bootstrap-icons.css" type="text/css" />
+	<link rel="stylesheet" href="<?=base_url('assets2/')?>fileupload/bs-filestyle.css" type="text/css" />
+	<link rel="stylesheet" href="<?=base_url('assets2/')?>fileupload/bootstrap-icons.css" type="text/css" />
 
-	<link rel="stylesheet" href="<?=base_url()?>assets/ekko_lightbox/ekko-lightbox.css" type="text/css"/>
+	<link rel="stylesheet" href="<?=base_url()?>assets2/ekko_lightbox/ekko-lightbox.css" type="text/css"/>
 
 
 	<!-- Date picker -->
-	<link rel="stylesheet" href="<?=base_url()?>assets/dist/css/default/zebra_datepicker.min.css" type="text/css" />
+	<link rel="stylesheet" href="<?=base_url()?>assets2/dist/css/default/zebra_datepicker.min.css" type="text/css" />
 
-    <script src="<?=base_url('assets/js/jquery.min.js?v='.filemtime('./assets/js/jquery.min.js'))?>"></script>
-	<script src="<?=base_url('assets/js/vue.js')?>"></script>
-	<script src="<?=base_url('assets/js/axios.min.js')?>"></script>
+    <script src="<?=base_url('assets2/js/jquery.min.js?v='.filemtime('./assets2/js/jquery.min.js'))?>"></script>
+	<script src="<?=base_url('assets2/js/vue.js')?>"></script>
+	<script src="<?=base_url('assets2/js/axios.min.js')?>"></script>
 
 	<style>
 		/* thai */
@@ -113,13 +113,6 @@
 	</style>
 
 </head>
-<?php
-	getModal("machine/modals/manage_runscreen_modal");
-	getModal("machine/modals/create_template_modal");
-	getModal("machine/modals/edit_template_modal");
-	getModal("modal/addNewData_modal");
-	getModal("graph/modal/qcsampling_modal");
-?>
 
 <div class="loader">
 	<div></div>
@@ -133,8 +126,6 @@
 </script>
 
 <body>
-	
-
 	<div class="header">
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
@@ -149,9 +140,9 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="<?=getUserImage()?>" alt="">
+							<img src="#" alt="">
 						</span>
-						<span class="user-name"><?=getUser()->Fname." ".getUser()->Lname?></span>
+						<span class="user-name">TEST</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<!-- <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
@@ -168,10 +159,8 @@
 
 	<div class="left-side-bar">
 		<div class="brand-logo">
-			<a href="<?=base_url()?>">
-				<!-- <img src="<?=base_url('assets/')?>vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
-				<img src="<?=base_url('assets/')?>vendors/images/deskapp-logo-white.svg" alt="" class="light-logo"> -->
-				<span style="font-size:28px;"><b>เครื่องมิกซ์</b></span>
+			<a href="<?=base_url('admin')?>">
+				<span style="font-size:28px;"><b>Samutprakan Focus</b></span>
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -181,22 +170,17 @@
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li class="dropdown">
-						<a href="<?=base_url()?>" class="dropdown-toggle no-arrow">
+						<a href="<?=base_url('admin')?>" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-house-1"></span><span class="mtext">หน้าหลัก</span>
 						</a>
 					</li>
 			
-					<li id="settingMenuLi" style="display:none;">
-						<a href="<?=base_url('main/machine')?>" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-calendar1"></span><span class="mtext">ตั้งค่าเทมเพลต</span>
+					<li>
+						<a href="#" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-calendar1"></span><span class="mtext">จัดการผู้ใช้งาน</span>
 						</a>
 					</li>
 			
-					<!-- <li>
-						<a href="sitemap.html" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-diagram"></span><span class="mtext">ขอความช่วยเหลือ</span>
-						</a>
-					</li> -->
 					<li>
 						<div class="dropdown-divider"></div>
 					</li>
@@ -208,69 +192,7 @@
 	<div class="mobile-menu-overlay"></div>
 
     <script>
-        const url = "<?php echo base_url()?>";
 
-        $(document).ready(function(){
-			const ecode = "<?php echo getUser()->ecode; ?>";
-			const adminEcode = ['M1809' , 'M1413' , 'M0506' , 'D2022' , 'M2067'];
-
-			if(ecode == "M1809" ||
-			ecode == "M1413" ||
-			ecode == "M0506" ||
-			ecode == "D2022" ||
-			ecode == "M2067" ||
-			ecode == "M0282"){
-				$('#settingMenuLi').css('display' , '');
-			}else{
-				$('#settingMenuLi').css('display' , 'none');
-			}
-
-			// controlButton_foradmin(ecode);
-
-            $('#logoutBtn').click(function(){
-                logoutConfirm();
-            });
-
-
-			//control button
-			function controlButton_foradmin(ecode)
-			{
-				//Control ปุ่มลงทะเบียน
-				let ecodeAdminTrue = adminEcode.filter(function(value , index, arr){
-					if(value == ecode){
-						$('#settingMenuLi').css('display' , '');
-						return value;
-					}else{
-						$('#settingMenuLi').css('display' , 'none');
-						return null;
-					}
-					
-				});
-				console.log(ecodeAdminTrue);
-			}
-
-			
-        });
-
-		
-
-
-        function logoutConfirm()
-        {
-            swal({
-                title: 'ต้องการลงชื่ออกจากระบบ ใช่หรือไม่',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                confirmButtonText: 'ยืนยัน',
-				cancelButtonText:'ยกเลิก'
-            }).then((result)=> {
-                if(result.value == true){
-                    location.href = url+'login/logout';
-                }
-            });
-        }
     </script>
 
 

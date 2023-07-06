@@ -89,7 +89,11 @@
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
   </div>
-  <script src="./assets/js/plugins.js"></script>
-  <script src="./assets/js/theme.js"></script>
+  <script src="<?=base_url()?>/assets/js/plugins.js"></script>
+  <script src="<?=base_url()?>/assets/js/theme.js"></script>
+
+      <!-- add sweet alert js & css in footer -->
+	<script src="<?=base_url('assets2/')?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
+	<script src="<?=base_url('assets2/')?>src/plugins/sweetalert2/sweet-alert.init.js"></script>
 </body>
 </html>
