@@ -165,7 +165,7 @@
               <div class="divider-icon my-4">หรือ</div>
               <nav class="nav social justify-content-center text-center">
                 <a href="#" class="btn btn-circle btn-sm btn-facebook-f"><i class="uil uil-facebook-f"></i></a>
-                <a href="#" class="btn btn-circle btn-sm btn-line"><i class="uil uil-line"></i></a>
+                <a href="<?=base_url('login/login/linelogin')?>" class="btn btn-circle btn-sm btn-line"><i class="uil uil-line"></i></a>
               </nav>
               <!--/.social -->
             </div>

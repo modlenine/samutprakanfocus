@@ -20,7 +20,17 @@ class Login extends MX_Controller {
 
     public function checklogin()
     {
-        $this->login->checklogin();
+        $this->login->linelogin();
+    }
+
+    public function linelogin()
+    {
+        $this->login->linelogin();
+    }
+
+    public function callback()
+    {
+        $this->load->view("callback");
     }
 
 }
