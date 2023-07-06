@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="./assets/css/plugins.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 
+  <script src="<?=base_url('assets/js/axios.min.js')?>"></script>
+
   <style>
 		/* thai */
 		@font-face {
@@ -154,7 +156,7 @@
                   <span class="password-toggle"><i class="uil uil-eye"></i></span>
                   <label for="loginPassword">รหัสผ่าน</label>
                 </div>
-                <a class="btn btn-primary rounded-pill btn-login w-100 mb-2">ลงชื่อเข้าใช้</a>
+                <a class="btn btn-primary rounded-pill btn-login w-100 mb-2" id="btn-login" name="btn-login">ลงชื่อเข้าใช้</a>
               </form>
               <!-- /form -->
               <p class="mb-1"><a href="#" class="hover">ลืมรหัสผ่าน?</a></p>
@@ -220,5 +222,14 @@
       <!--/.modal -->
     </header>
 </body>
+
+<script>
+    const loginbtn = document.getElementById("btn-login");
+    loginbtn.addEventListener("click" , checklogin('test'));
+    function checklogin(input)
+    {
+      console.log(input);
+    }
+</script>
 
 </html>
